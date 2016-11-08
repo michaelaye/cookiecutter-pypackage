@@ -2,22 +2,25 @@
 Cookiecutter PyPackage
 ======================
 
-.. image:: https://pyup.io/repos/github/audreyr/cookiecutter-pypackage/shield.svg
-     :target: https://pyup.io/repos/github/audreyr/cookiecutter-pypackage/
+.. image:: https://pyup.io/repos/github/michaelaye/cookiecutter-pypackage-conda/shield.svg
+     :target: https://pyup.io/repos/github/michaelaye/cookiecutter-pypackage-conda/
      :alt: Updates
 
 Cookiecutter_ template for a Python package.
 
-* GitHub repo: https://github.com/audreyr/cookiecutter-pypackage/
+* GitHub repo: https://github.com/michaelaye/cookiecutter-pypackage-conda/
 * Documentation: https://cookiecutter-pypackage.readthedocs.io/
 * Free software: BSD license
 
 Features
 --------
 
+This was forked from the standard cookiecutter-pypackage repo for creating a cookiecutter for Python
+projects that run within a **conda** environment. Basically, this meant to remove the `tox` parts
+for now and add a `conda install` here or there.
+
 * Testing setup with ``unittest`` and ``python setup.py test`` or ``py.test``
 * Travis-CI_: Ready for Travis Continuous Integration testing
-* Tox_ testing: Setup to easily test for Python 2.6, 2.7, 3.3, 3.4, 3.5
 * Sphinx_ docs: Documentation ready for generation with, for example, ReadTheDocs_
 * Bumpversion_: Pre-configured version bumping with a single command
 * Auto-release to PyPI_ when you push a new tag to master (optional)
@@ -30,14 +33,14 @@ Build Status
 
 Linux:
 
-.. image:: https://img.shields.io/travis/audreyr/cookiecutter-pypackage.svg
-    :target: https://travis-ci.org/audreyr/cookiecutter-pypackage
+.. image:: https://img.shields.io/travis/michaelaye/cookiecutter-pypackage-conda.svg
+    :target: https://travis-ci.org/michaelaye/cookiecutter-pypackage-conda
     :alt: Linux build status on Travis CI
 
 Windows:
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/audreyr/cookiecutter-pypackage?branch=master
-    :target: https://ci.appveyor.com/project/audreyr/cookiecutter-pypackage/branch/master
+.. image:: https://ci.appveyor.com/api/projects/status/github/michaelaye/cookiecutter-pypackage-conda?branch=master
+    :target: https://ci.appveyor.com/project/michaelaye/cookiecutter-pypackage-conda/branch/master
     :alt: Windows build status on Appveyor
 
 Quickstart
@@ -48,9 +51,14 @@ Cookiecutter 1.4.0 or higher)::
 
     pip install -U cookiecutter
 
+or
+
+    conda install -c conda_forge cookiecutter
+
+
 Generate a Python package project::
 
-    cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+    cookiecutter https://github.com/michaelaye/cookiecutter-pypackage-conda.git
 
 Then:
 
@@ -113,7 +121,6 @@ make my own packaging experience better.
 
 
 .. _Travis-CI: http://travis-ci.org/
-.. _Tox: http://testrun.org/tox/
 .. _Sphinx: http://sphinx-doc.org/
 .. _ReadTheDocs: https://readthedocs.io/
 .. _`pyup.io`: https://pyup.io/
@@ -124,5 +131,5 @@ make my own packaging experience better.
 .. _`tony/cookiecutter-pypackage-pythonic`: https://github.com/tony/cookiecutter-pypackage-pythonic
 .. _`ardydedase/cookiecutter-pypackage`: https://github.com/ardydedase/cookiecutter-pypackage
 .. _github comparison view: https://github.com/tony/cookiecutter-pypackage-pythonic/compare/audreyr:master...master
-.. _`network`: https://github.com/audreyr/cookiecutter-pypackage/network
-.. _`family tree`: https://github.com/audreyr/cookiecutter-pypackage/network/members
+.. _`network`: https://github.com/michaelaye/cookiecutter-pypackage-conda/network
+.. _`family tree`: https://github.com/michaelaye/cookiecutter-pypackage-conda/network/members
