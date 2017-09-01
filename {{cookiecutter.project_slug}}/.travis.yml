@@ -2,7 +2,12 @@
 # This file will be regenerated if you run travis_pypi_setup.py
 
 language: python
-python: 3.5
+python:
+  - 3.5
+  - 3.4
+  - 3.3
+  - 2.7
+  - 2.6
 
 {% if cookiecutter.use_pypi_deployment_with_travis == 'y' -%}
 # After you create the Github repo and add it to Travis, run the
