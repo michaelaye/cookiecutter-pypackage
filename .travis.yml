@@ -1,6 +1,6 @@
 language: python
 
-python: 3.5
+python: 3.6
 
 deploy:
   provider: pypi
@@ -11,3 +11,5 @@ deploy:
   on:
     tags: true
     repo: michaelaye/python_boilerplate
+
+script: python setup.py test
