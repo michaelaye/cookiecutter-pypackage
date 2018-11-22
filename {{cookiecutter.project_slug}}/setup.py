@@ -4,6 +4,7 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+import requirements
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -11,26 +12,15 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
-    {%- if cookiecutter.command_line_interface|lower == 'click' %}
-    'Click>=6.0',
-    {%- endif %}
-    # TODO: put package requirements here
-]
+setup_requirements = []
+with open('requirements/prod.txt', 'r') as fd:
+    for req in requirements.parse(fd):
+        setup_requirements.append(req.name)
 
-setup_requirements = [
-{%- if cookiecutter.use_pytest == 'y' %}
-    'pytest-runner',
-{%- endif %}
-    # TODO({{ cookiecutter.github_username }}): put setup requirements (distutils extensions, etc.) here
-]
-
-test_requirements = [
-{%- if cookiecutter.use_pytest == 'y' %}
-    'pytest',
-{%- endif %}
-    # TODO: put package test requirements here
-]
+test_requirements = []
+with open('requirements/test.txt', 'r') as fd:
+    for req in requirements.parse(fd):
+        test_requirements.append(req.name)
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
@@ -56,6 +46,8 @@ setup(
         ]
     },
     {%- endif %}
+    package_dir={'{{ cookiecutter.project_slug }}':
+                 '{{ cookiecutter.project_slug }}'},
     include_package_data=True,
     install_requires=requirements,
 {%- if cookiecutter.open_source_license in license_classifiers %}
@@ -70,13 +62,8 @@ setup(
         '{{ license_classifiers[cookiecutter.open_source_license] }}',
 {%- endif %}
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.7',
     ],
     test_suite='tests',
     tests_require=test_requirements,
