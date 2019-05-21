@@ -3,5 +3,4 @@ omit =
     setup.py
     {{ cookiecutter.project_slug }}/__main__.py
     {{ cookiecutter.project_slug }}/_version.py
-    versioneer.py
     tests/*
