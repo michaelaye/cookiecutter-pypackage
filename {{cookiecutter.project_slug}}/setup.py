@@ -4,7 +4,6 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
-import requirements
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -12,15 +11,11 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-setup_requirements = []
-with open('requirements/prod.txt', 'r') as fd:
-    for req in requirements.parse(fd):
-        setup_requirements.append(req.name)
+requirements = [{%- if cookiecutter.command_line_interface|lower == 'click' %}'Click>=6.0',{%- endif %} ]
 
-test_requirements = []
-with open('requirements/test.txt', 'r') as fd:
-    for req in requirements.parse(fd):
-        test_requirements.append(req.name)
+setup_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ]
+
+test_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest',{%- endif %} ]
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',

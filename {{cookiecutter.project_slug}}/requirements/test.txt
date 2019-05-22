@@ -1,4 +1,0 @@
--r prod.txt
-{%- if cookiecutter.use_pytest == 'y' %}
-pytest
-{%- endif %}
